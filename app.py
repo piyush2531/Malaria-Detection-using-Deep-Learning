@@ -190,16 +190,6 @@ def health():
         'model_loaded': model is not None
     })
 
-
-if __name__ == '__main__':
-    print("\n" + "="*70)
-    print(f"{'✓' if model else '✗'} Model: {'LOADED' if model else 'NOT LOADED'}")
-    print("🌐 Server: http://127.0.0.1:5000")
-    print("="*70 + "\n")
-
-    app.run(debug=True, host='127.0.0.1', port=5000, use_reloader=False)
-
-
 import os
 
 if __name__ == "__main__":
