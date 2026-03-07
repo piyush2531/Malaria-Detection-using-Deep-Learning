@@ -10,16 +10,7 @@ app = Flask(__name__)
 app.config['MAX_CONTENT_LENGTH'] = 16 * 1024 * 1024
 
 
-model = None
-import os
 
-MODEL_PATH = "best_model.keras"
-
-if os.path.exists(MODEL_PATH):
-    model = load_model(MODEL_PATH)
-    print("Model loaded successfully.")
-else:
-    print("Model file not found.")
 
 
 MODEL_ERROR = None
