@@ -65,9 +65,8 @@ if MODEL_ERROR is None:
 # =======================
 # Image Preprocessing
 # =======================
+from PIL import Image
 def prepare_image(image_file):
-    if model is None:
-        return None
 
     try:
         img = Image.open(image_file)
@@ -120,16 +119,18 @@ def predict():
         # =====================
         # Save uploaded image
         # =====================
-        upload_folder = os.path.join('static', 'uploads')
+        # =====================
+        # Save uploaded image
+        # =====================
+        upload_folder = "static/uploads"
         os.makedirs(upload_folder, exist_ok=True)
 
         image_path = os.path.join(upload_folder, file.filename)
         file.save(image_path)
-
         # =====================
         # Prepare image
         # =====================
-        img_array = prepare_image(image_path)
+        img_array = prepare_image(file)
 
         if img_array is None:
             return jsonify({'success': False, 'error': 'Image processing failed'}), 500
